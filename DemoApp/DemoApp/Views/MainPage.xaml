@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DemoApp.Views.MainPage" Title="DemoApp">
+    <ContentPage.Content>
+        <StackLayout>
+
+            <Button Text="Carregar"
+                    Command="{Binding CarregaListaCommand}"
+                    BackgroundColor="Blue"
+                    TextColor="White">
+            </Button>
+
+            <!-- Botão utilizado no exemplo sem o MVVM
+            <Button Text="Carregar"
+                    Cliked="Button_Cliked"
+                    BackgroundColor="Blue"
+                    TextColor="White">
+            </Button>
+            -->
+            <Label
+                FontSize="30"
+                Text="Cachorros (DogAPI)"
+                TextColor="Blue"
+                HorizontalTextAlignment="Center"/>
+
+            <ListView x:Name="ListDogs"
+                  HasUnevenRows="True"
+                  ItemsSource="{Binding Retorno.Message}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                                <Image Source="{Binding .}"
+                                       HeightRequest="200" Margin="10">
+                                </Image>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
